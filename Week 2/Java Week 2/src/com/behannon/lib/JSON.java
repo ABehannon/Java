@@ -37,23 +37,6 @@ public class JSON {
 		return mainObject;
 	}
 	
-	//checks the number of the cat Enum
-	public static String getCatNumber(String selected){
-		String catNumber;
-		
-		JSONObject object = buildJSON();
-		
-		try {
-			catNumber = object.getJSONObject("data").getJSONObject(selected).getString("nameCount");
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			catNumber = e.toString();
-		}
-		
-		return catNumber;
-	}
-	
 	//reads the json from the object
 	public static String readJSON(String selected){
 		String result, firstName, lastName;
