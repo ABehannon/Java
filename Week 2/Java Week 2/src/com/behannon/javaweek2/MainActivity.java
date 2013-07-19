@@ -1,11 +1,14 @@
 package com.behannon.javaweek2;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup.MarginLayoutParams;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -45,6 +48,9 @@ public class MainActivity extends Activity {
 	//string start
 	String rec;
 	String tempNames;
+	
+	//ImageView start
+	ImageView image1;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -109,6 +115,17 @@ public class MainActivity extends Activity {
     	b.setText("PRESS TO SHOW NAMES");
     	
     	//-----------------------------------
+    	//Image view setup setup
+    	//-----------------------------------   
+    	image1 = new ImageView(this);
+    	image1.findViewById(R.drawable.placeholder1);
+    	    Bitmap bmp=BitmapFactory.decodeResource(getResources(), R.drawable.placeholder1);
+    	    int width=400;
+    	    int height=400;
+    	    Bitmap resizedbitmap=Bitmap.createScaledBitmap(bmp, width, height, true);
+    	    image1.setImageBitmap(resizedbitmap);
+       	
+    	//-----------------------------------
 		//On click handler
     	//-----------------------------------
 		b.setOnClickListener(new View.OnClickListener() {
@@ -153,6 +170,7 @@ public class MainActivity extends Activity {
     	setContentView(ll);
     	ll.addView(instructionText); 
     	ll.addView(nameAmountField);
+    	ll.addView(image1);
     	ll.addView(b);
     	ll.addView(printoutText);
     }
